@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>徐鑫的表单</title>
+</head>
+<body>
+<div class="form">
+  <form class="form" name="denglu" action="/abc" method="post">
+    <div class="name"> 
+      <label for="name">姓名:</label>
+    <input id="name" type="text" name="name" placeholder="用户名">
+    </div>
+  <div class="password"> 
+      <label for="password">密码:</label>
+    <input id="password" type="password" name="password" placeholder="输入密码">
+    </div>
+    <div class="sex"> 
+      <label >性别:</label>
+    <input  type="radio" name="sex" value="man">男
+    <input  type="radio" name="sex" value="woman">女
+    <input  type="radio" name="sex" value="unman">阴阳人
+    </div>
+    <div class="love"> 
+      <label >取向:</label>
+    <input  type="radio" name="love" value="man">男
+    <input  type="radio" name="love" value="woman">女
+    <input  type="radio" name="love" value="unman">阴阳人
+    </div>
+    <div class="hobby"> 
+      <label >取向:</label>
+    <input  type="checkbox" name="hobby" value="man">dota2
+    <input  type="checkbox" name="hobby" value="woman">魔兽世界
+    <input  type="checkbox" name="hobby" value="unman">王者荣耀
+    </div>
+    <div class="city">
+      <label for="city">你在哪个牛逼的城市：</label>
+      <select name="city">
+      <option id="city" name="city" value="beijing">北京</option>
+      <option id="city" name="city" value="beijing">上海</option>
+      <option id="city" name="city" value="beijing">成都</option>
+      <option id="city" name="city" value="beijing">其他</option>
+      </select>
+    </div>
+    <div class="textarea"> 
+      <label for="textarea">评论:</label>
+    <textarea id="textarea" name="textarea" placeholder="写点什么吧"></textarea>
+    </div>
+    <div class="file">
+      <input type="file" name="file" accept="image/gif/png/pdf/jpeg/jpg">
+      <button name="tijiao">提交</button>
+    </div>
+   
+  </form>
+</div>
+</body>
+</html>
