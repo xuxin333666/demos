@@ -2,10 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="form.css">
   <title>徐鑫的表单</title>
 </head>
 <body>
-<div class="form" style="width:100%;text-align:center">
+<div class="form" >
   <form class="form" name="denglu" action="/abc" method="post">
     <div class="name"> 
       <label for="name">姓名:</label>
@@ -46,11 +47,12 @@
       <label for="textarea">评论:</label>
     <textarea id="textarea" name="textarea" placeholder="写点什么吧"></textarea>
     </div>
-    <div class="file">
-      <input type="file" name="file" accept="image/gif/png/pdf/jpeg/jpg">
-      <button name="tijiao">提交</button>
-    </div>
    
+    <div class="file"><input type="file" name="file" accept="image/gif/png/pdf/jpeg/jpg">
+    </div>
+    <div class="tijiao"><button name="tijiao">提交</button>
+    </div>
+      
   </form>
 </div>
 </body>
