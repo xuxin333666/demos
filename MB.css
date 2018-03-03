@@ -1,0 +1,24 @@
+.all>div{
+  width:550px;
+  margin:20px auto;
+  padding:5px 15px;
+}
+div.box1{
+  border:1px solid #ccc;
+  border-radius:3px
+}
+div.box4{
+  background:rgba(120,255,120,1);
+  border:1px green solid;
+  border-bottom:7px green solid;
+}
+div.box2{
+  background:rgba(255,0,0,0.15);
+  border-left:7px red solid;
+  border-right:7px red solid;
+}
+div.box3{
+  background:rgba(255,255,0,0.2);
+  border-top:7px rgba(255,255,0,1) solid;
+  border-bottom:7px rgba(255,255,0,1) solid;
+}

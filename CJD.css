@@ -1,0 +1,41 @@
+
+.table{
+  width:600px;
+  margin:0 auto;
+  border:0px solid;
+  font-family:arial;
+}
+table{
+  margin:30px auto;
+  width:100%;
+  border-collapse:collapse;
+  border-spacing:0;
+}
+.table1 table{
+  border:1px solid #ccc;
+}
+th{
+  padding:8px;
+  font-weight:bold;
+  width:200px
+}
+.table1 th{
+  background:#4CAF50;
+  color:white;
+}
+.table2 th{
+ border:none;
+}
+td{
+  padding:8px;
+  text-align:center;
+}
+tr:nth-child(2n){
+  background:#eee;
+}
+td{
+  border:none;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+
