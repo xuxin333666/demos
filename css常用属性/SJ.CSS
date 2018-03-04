@@ -1,0 +1,60 @@
+﻿
+.SJ>div{
+  margin-bottom:30px;
+}
+.V4{
+  width:0px;
+  height:0px;
+  border-top:50px blue solid;
+  border-bottom:50px green solid;
+  border-left:50px red solid;
+  border-right:50px yellow solid;
+}
+.T1{
+  width:0px;
+  height:0px;
+  border-top:50px blue solid;
+  border-bottom:50px white solid;
+  border-left:50px white solid;
+  border-right:50px white solid;
+}
+.L1{
+  width:0px;
+  height:0px;
+  border-top:50px white solid;
+  border-bottom:50px white solid;
+  border-left:50px red solid;
+  border-right:50px white solid;
+}
+.R1{
+  width:0px;
+  height:0px;
+  border-top:50px white solid;
+  border-bottom:50px white solid;
+  border-left:50px white solid;
+  border-right:50px yellow solid;
+}
+.B1{
+  width:0px;
+  height:0px;
+  border-top:50px white solid;
+  border-bottom:50px green solid;
+  border-left:50px white solid;
+  border-right:50px white solid;
+}
+.LB1{
+  width:0px;
+  height:0px;
+  border-top:30px white solid;
+  border-bottom:30px RED solid;
+  border-left:30px red solid;
+  border-right:30px white solid;
+}
+.RB1{
+  width:0px;
+  height:0px;
+  border-top:30px white solid;
+  border-bottom:30px green solid;
+  border-left:30px white solid;
+  border-right:30px green solid;
+}
