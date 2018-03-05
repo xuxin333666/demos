@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>有阴影的按钮</title>
+  <Style ID="AN.css">
+    .layout{
+  width:400px;
+  margin:0 auto;
+}
+.layout>a{
+  padding:8px;
+  border-radius:3px;
+  text-decoration:none;
+  transition: all .3s;
+}
+.layout>a:hover{
+ box-shadow:0px 6px 15px rgba(0,0,0,0.3);
+}
+.steal{
+  background:rgba(0,125,0,1);
+  color:white;
+}
+.yellow{
+  background:yellow;
+  color:black;
+}
+.orange{
+  background:orange;
+  color:black;
+}
+.red{
+  background:red;
+  color:white;
+}
+.green{
+  background:rgba(0,200,0,1);
+  color:white;
+}
+  </Style>
+</head>
+<body>
+<div class="layout">
+  <a href="#" class="steal">steal</a>
+  <a href="#" class="yellow">yellow</a>
+  <a href="#" class="orange">orange</a>
+  <a href="#" class="red">red</a>
+  <a href="#" class="green">green</a>
+</div>
+</body>
+</html>
