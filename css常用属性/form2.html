@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>form2</title>
+  <style>
+  #name,#QQ,#word{
+  display:block;
+  margin-top:15px;
+  width: 100%;
+  border:none;
+  border-bottom:1px solid #ccc;
+}
+#name:focus,#QQ:focus,#word:focus{
+  outline:none;
+}
+#name,#QQ{
+  height:20px;
+}
+#word{
+  height:50px;
+}
+.layout{
+  width: 550px;
+  height: 500px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  margin:0 auto;
+  font-family: arial;
+}
+.form>div{
+  margin-top:15px;
+  padding:1px 15px;
+}
+div.title{
+  background:#009688;
+  margin-top:0px;
+}
+h2.title{
+  line-height:1;
+  color:white;
+  font-weight:bold;
+}
+div.checkbox,div.radio{
+  width:50%;
+  float:left;
+  line-height:1.5;
+  padding:0;  
+}
+div.box:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+input.submit{
+  display:inline-block;
+  background:#009688;
+  width:60px;
+  height:35px;
+  border:none;
+  color:white;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="layout">
+  <form action="#" method="post" class="form">
+    <div class="title">
+      <h2 class="title">信息收集表</h2>
+    </div>
+    <div class="name">
+    <label for="name" class="name">姓名</laber>
+    <input type="text" name="name" id="name" class="name">
+    </div>
+     <div class="QQ">
+    <label for="QQ" class="QQ">QQ</laber>
+    <input type="text" name="QQ" id="QQ" class="QQ">
+    </div>
+      <div class="word">
+    <label for="word" class="word">想说的话</laber>
+    <textarea name="word" id="word" class="word"></textarea>
+    </div>
+    <div class="box">
+    <div class="checkbox">
+      <div><input type="checkbox" name="checkbox" value="milk" class="checkbox">milk</div>
+      <div><input type="checkbox" name="checkbox" value="Sugar" class="checkbox">Sugar</div>
+      <div><input type="checkbox" name="checkbox" value="Lemon" class="checkbox">Lemon</div>
+    </div>
+    <div class="radio">
+      <div><input type="radio" name="radio" value="male" class="radio">male</div>
+     <div><input type="radio" name="radio" value="female" class="radio">female</div>
+      </div>
+    </div>
+    <div class="submit">
+      <input type="submit" class="submit">
+    </div>
+  </form>
+</div>
+</body>
+</html>
