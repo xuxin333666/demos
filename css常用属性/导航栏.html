@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>导航栏</title>
+  <style>
+  * {
+  margin:0;
+  padding:0;
+}
+.layout {
+  width:400px;
+  margin:0 auto;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3), 0px 3px 10px rgba(0,0,0,0.3);
+  background:#eee;
+  border-radius:2px;
+}
+.lan:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+.lan>li {
+  float:left;
+  list-style-type:none;
+  position:relative;
+  }
+.lan a {
+  text-decoration:none;
+  display:block;
+  padding:10px;
+}
+.more>div {
+  position:absolute;
+  left:0;
+  top:100%;
+  width:120px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3), 0px 3px 10px rgba(0,0,0,0.3);
+  background:white;
+  display:none;
+}
+a {
+  color:black;
+}
+a:hover {
+ background:#ccc; 
+}
+li.more:hover .child {
+  display:block;
+}
+
+  </style>
+</head>
+<body>
+<div class="layout">
+  <ul class="lan">
+    <li class="first">
+      <a href="" class="first">首页</a></li>
+    <li class="works"><a href="" class="works">
+      作品</a></li>
+    <li class="more">
+      <a href="" class="more">更多</a>
+    <div class="child">
+      <a href="" class="git">Github</a>
+      <a href="" class="bolg">微博</a>
+      <a href="" class="zhihu">知乎</a>
+      </div></li>
+  </ul>
+</div>
+</body>
+</html>

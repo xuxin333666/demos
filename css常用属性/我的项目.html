@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>徐鑫的项目</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+  font-family: "\5FAE\8F6F\96C5\9ED1","Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei",  "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+body {
+  height: 100%;
+  background: #fff2e3;
+  padding-top: 50px;
+}
+.wrapper {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wrapper>:nth-child(1n) {
+  margin-top:30px;
+}
+#title {
+  color: #fff2e3;
+  font-size: 40px;
+  text-shadow: 0px 6px 20px rgba(0,0,0,0.3),0px 8px 14px rgba(0,0,0,0.4);
+}
+#title:hover {
+  color: #87968e;
+  text-shadow: none;
+}
+#comment {
+  padding:5px;
+  color: rgba(0,0,0,0.6);
+}
+#works-list {
+  display: flex;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+}
+.button {
+  display: block;
+  padding: 5px 12px;
+  border-radius: 2px;
+  background: rgb(63, 191, 68);
+  font-size: 14px;
+  color: white;
+}
+.button:hover {
+  background: rgba(63, 191, 68,0.8);
+}
+#works-list>li:first-child>.button {
+  background: rgba(63, 191, 68,0.8);
+}
+#photo-show {
+  width: 400px;
+}
+#tag>li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.more {
+  position: relative;
+  cursor: pointer;
+}
+.more>.dropdown {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 100px;
+}
+.dropdown>.button {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.more:hover>.dropdown {
+  display: block;
+}    
+footer {
+  font-size: 13px;
+  margin-top: 30px;
+}
+#myself {
+  color: rgb(63, 191, 68);
+}
+  </style>
+</head>
+<body>
+  <header class="wrapper">  
+    <h1 id="title">徐鑫的项目</h1>
+    <p id="comment">XXXXXXXXXXXXXXX</p>
+    <ul id="works-list">
+      <li><a href="" class="work1 button">作品1</a></li>
+      <li><a href="" class="work2 button">作品2</a></li>
+      <li><a href="" class="work3 button">作品3</a></li>
+      <li><a href="" class="work4 button">作品4</a></li>
+      <li><a href="" class="work5 button">作品5</a></li>
+    </ul>
+  </header>
+  <div class="content wrapper">
+    <img src="http://upload-images.jianshu.io/upload_images/10942635-8de6058404dbbe73.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" id="photo-show">
+    <ul id="tag">
+      <li><a href="" class="demos button">查看码源</a></li>
+      <li>
+        <div class="more button">更多内容
+          <div class="dropdown">
+            <a href="" class="button">使用说明</a>
+            <a href="" class="button">个人简历</a>
+            <a href="https://github.com/xuxin333666/demos" class="button">Github</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <footer class="wrapper">作者：<a href="" id="myself">我</a></footer>
+</body>
+</html>

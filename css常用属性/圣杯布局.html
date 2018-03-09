@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>圣杯布局</title>
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100%;
+}
+#header {
+  background: orange;
+  padding: 15px;
+  text-align: center;
+}
+#content {
+  padding-right: 180px;
+  padding-left: 140px;
+  margin-top: 30px;
+}
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#main {
+  background: blue;
+  height: 500px;
+  float: left;
+  width: 100%;
+  min-width:300px;
+}
+#aside {
+  background: red;
+  width: 120px;
+  height: 300px;
+  float: left;
+  margin-left: -100%;
+  position: relative;
+  right: 140px; 
+}
+#menu {
+  background: yellow;
+  width: 160px;
+  height: 250px;
+  float: left;
+  margin-left: -160px;
+  position: relative;
+  left: 180px; 
+}
+#footer {
+  background: green;
+  padding: 15px;
+  text-align: center;
+  margin-top: 30px;
+}
+  </style>
+</head>
+<body>
+  <div id="header"><div class="child">header header header header header header header header header</div></div>
+  <div id="content">
+  <div id="main">main</div>
+  <div id="aside">aside</div>
+  <div id="menu">menu</div>
+</div>
+  <div id="footer">footer</div>
+</body>
+</html>

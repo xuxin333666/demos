@@ -1,0 +1,126 @@
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.clearfix {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  /* css */
+body {
+    height: 100%;
+    background: #d8d0cd;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.wrapper {
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+/* header css */
+.header {
+    color: #635b58;
+}
+/* content css */
+.content {
+    padding-top: 10px;
+    padding-bottom: 40px;
+    background: #e5e2dd;
+    border-radius: 6px;
+    box-shadow:0 0px 10px rgba(0, 0, 0, 0.15),0 0px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.login-form>div {
+    margin-left: 35px;
+    margin-right: 35px;
+}
+.bt-input {
+    margin-top: 30px;
+    padding-left: 10px;
+    background: #e3dbd8;
+    box-shadow: inset 0 -2px 3px rgba(0, 0, 0, .3), inset 0 2px 3px rgba(0, 0, 0, 0.3);
+    width: 320px;
+    height: 50px;
+    text-align: left;
+    border-radius: 8px;
+}
+/* bt-input center */
+.bt-input::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.bt-input>input,
+.bt-input>label {
+    vertical-align: middle;
+}
+.bt-input>.iconfont {
+    font-size: 26px;
+    color: #645e5e;
+}
+.bt-input>input {
+    border: none;
+    outline: none;
+    background: #e3dbd8;
+    color: #645e5e;
+    font-weight: bold;
+}
+.orther {
+    margin-top: 30px;
+    text-align: left;
+    line-height: 50px;
+}
+.orther>.rememberme {
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #635b58;
+}
+#rememberme {
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+    background: url('../img/未点选-圆形选框.png') no-repeat;
+    background-size: contain;
+    outline: none;
+}
+#rememberme:checked {
+    background: url('../img/点选-圆形选框.png') no-repeat;
+    background-size: contain;
+}
+.orther>.forgot {
+    font-size: 17px;
+    color: #9a928f;
+    font-weight: bold;
+}
+.login {
+    margin-top: 20px;
+    width: 330px;
+    height: 50px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow:0 0px 10px rgba(0, 0, 0, 0.15),0 0px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 24px;
+    color: white;
+    background: linear-gradient(#98ad71, #657843);
+   }
+footer.wrapper {
+    width: 460px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #635b58;
+}
+.footerlink {
+    color: #9a928f;
+    text-decoration: underline;
+}
+
