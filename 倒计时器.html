@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Propagation</title>
+
+<style type="text/css">
+
+</style>
+
+</head>
+<body>
+  <select name="xxx" id="选时间">
+    <option value="60" selected>1分钟</option>
+    <option value="120">2分钟</option>
+    <option value="180">3分钟</option>
+  </select>
+  <button class="start">开始</button>
+  <button class="pause" disabled>暂停</button>
+  <button class="resume" disabled>继续</button>
+  <div class="time"></div>  
+</body>
+<script type="text/javascript">
+function $(e) {
+  return document.querySelector(e);
+};
+var thelast
+var thevalue = 60
+$('.time').innerText ='1分钟0秒';
+$('select').addEventListener('click',function(){
+  window.clearTimeout(thelast);
+  $('.resume').disabled = true;
+  $('.pause').disabled = true;
+  thevalue = this.value;
+  $('.time').innerText = Math.floor(this.value /60) + '分钟' + Math.floor(this.value %60) + '秒';  
+}) 
+function showtime(){
+  if(parseInt(thevalue)){
+    thelast = setTimeout(function(){
+      thevalue =  parseInt(thevalue) - 1;
+      $('.time').innerText = Math.floor(thevalue /60) + '分钟' + Math.floor(thevalue %60) + '秒'; 
+      setTimeout(showtime(),1000)
+    },1000);
+  }
+  return;
+}
+$('.start').addEventListener('click',function(e){
+  window.clearTimeout(thelast);
+  $('.time').innerText =  Math.floor($('select').value /60) + '分钟' + Math.floor($('select').value %60) + '秒'; 
+  thevalue = $('select').value;
+  showtime();
+  $('.resume').disabled = true;
+  $('.pause').disabled = false;
+})
+$('.pause').addEventListener('click',function(e){
+  window.clearTimeout(thelast);
+  $('.resume').disabled = false;
+  this.disabled = true;
+})
+$('.resume').addEventListener('click',function(e){
+  showtime();
+  $('.pause').disabled = false;
+  this.disabled = true;
+})
+</script>
+</html>

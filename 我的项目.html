@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>徐鑫的项目</title>
+  <link rel="stylesheet" href="css/myWorks.css">
+  
+</head>
+<body>
+  <header class="wrapper">  
+    <h1 id="title">徐鑫的项目</h1>
+    <p id="comment">XXXXXXXXXXXXXXX</p>
+    <ul id="works-list">
+      <li><a href="#" class="work1 button">作品1</a></li>
+      <li><a href="#" class="work2 button">作品2</a></li>
+      <li><a href="#" class="work3 button">作品3</a></li>
+      <li><a href="#" class="work4 button">作品4</a></li>
+      <li><a href="#" class="work5 button">作品5</a></li>
+    </ul>
+  </header>
+  <div class="content wrapper">
+    <ul class="ct">
+      <li><img src="img/风景1.jpg" alt=""></li>
+      <li><img src="img/风景2.jpg" alt=""></li>
+      <li><img src="img/风景3.jpg" alt=""></li>
+      <li><img src="img/风景4.jpg" alt=""></li>
+      <li><img src="img/风景5.jpg" alt=""></li>
+    </ul>
+    <ul id="tag">
+      <li><a href="" class="demos button">查看码源</a></li>
+      <li>
+        <div class="more button">更多内容
+          <div class="dropdown">
+            <a href="" class="button">使用说明</a>
+            <a href="" class="button">个人简历</a>
+            <a href="https://github.com/xuxin333666/demos" class="button">Github</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <footer class="wrapper">作者：<a href="" id="myself">我</a></footer>
+</body>
+<script> 
+function $(e){
+  return document.querySelector(e)
+}
+function $$(e){
+  return document.querySelectorAll(e)
+}
+for (let i = 0; i < $$('#works-list .button').length; i++) {
+  $$('#works-list .button')[i].addEventListener('click',function(e){
+    for (let i = 0; i < $$('#works-list .button').length; i++) {
+      this.classList.remove('buttonOnClick'); 
+      $$('ul.ct li')[i].classList.remove('imgopen');
+    } 
+    this.classList.add('buttonOnClick'); 
+    $$('ul.ct li')[i].classList.add('imgopen');
+  })  
+}  
+</script>
+</html>
