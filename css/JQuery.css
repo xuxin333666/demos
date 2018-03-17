@@ -1,0 +1,97 @@
+* {
+    list-style-type: none;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.nav>li {
+    padding: 15px;
+    position: relative;
+    background-color: rgba(255,0,0,0.2);
+    border-top: 1px solid red;
+    color: white;
+    width: 200px;
+}
+.nav>li:last-child {
+    border-bottom: 1px red solid;
+}
+.nav>li>span {
+    float: right;
+}
+.nav>li>table {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    color: black;
+    display: none;
+}
+.nav>li>table td {
+    padding: 10px;  
+}
+.wrrap {
+    width: 800px;
+}
+.wrrap>.tab>li {
+    float: left;
+    padding: 10px;
+}
+.wrrap>.list>ul {
+    margin-left: 0px;
+    margin-right: -50px;
+}
+.wrrap>.list li {
+    float: left;
+    margin-right: 10px;
+    margin-top: 30px;
+    position: relative;
+}
+.wrrap>.list>ul {
+    display: none;
+}
+.wrrap>.list :first-child {
+    display: block;
+}
+.wrrap>.list img {
+    width: 260px;
+    height: 180px;
+}
+.wrrap>.list li>div {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background:rgba(0,0,0,0.6);
+    position: absolute;
+    display: none;
+}
+.wrrap>.list li.buy>div {
+    display: block;
+}
+.wrrap>.list a.btn {
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -25px;
+    top: 50%;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    color: orange;
+    background: white;
+}
+button.loadMore {
+    margin-top: 30px;
+    width: 80px;
+    height: 50px;
+    float: left;
+    display: block;
+}
+.wrrap>.list button.loadMore>img {
+    width: 80%;
+    height: 80%;
+}

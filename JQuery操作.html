@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Propagation</title>
+    <link rel="stylesheet" href="./css/JQuery.css">
+</head>    
+<body>
+    <ul class="nav">
+        <li>珠宝玉器<span>></span><table>
+            <tr>
+                <td>翡翠</td>
+                <td>玉石</td>
+            </tr>
+            <tr>
+                <td>珍珠</td>
+                <td>玛瑙</td>
+            </tr>
+        </table></li>
+        <li>珠宝玉器<span>></span><table>
+            <tr>
+                <td>翡翠</td>
+                <td>玉石</td>
+            </tr>
+            <tr>
+                <td>珍珠</td>
+                <td>玛瑙</td>
+            </tr>
+        </table></li>
+        <li>珠宝玉器<span>></span><table>
+            <tr>
+                <td>翡翠</td>
+                <td>玉石</td>
+            </tr>
+            <tr>
+                <td>珍珠</td>
+                <td>玛瑙</td>
+            </tr>
+        </table></li>
+        <li>珠宝玉器<span>></span><table>
+            <tr>
+                <td>翡翠</td>
+                <td>玉石</td>
+            </tr>
+            <tr>
+                <td>珍珠</td>
+                <td>玛瑙</td>
+            </tr>
+        </table></li>
+        <li>珠宝玉器<span>></span><table>
+            <tr>
+                <td>翡翠</td>
+                <td>玉石</td>
+            </tr>
+            <tr>
+                <td>珍珠</td>
+                <td>玛瑙</td>
+            </tr>
+        </table></li>
+    </ul>
+    <div class="wrrap">
+        <ul class="tab clearfix">
+            <li>珠宝</li>
+            <li>嫁妆</li>
+            <li>首饰</li>
+        </ul>
+        <div class="list">
+            <ul class="clearfix">
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <button class="loadMore">加载更多</button>
+            </ul>
+            <ul class="clearfix">
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <button class="loadMore">加载更多</button>
+            </ul>
+            <ul class="clearfix">
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <button class="loadMore">加载更多</button>
+            </ul>
+        </div>
+    </div>
+    <div class="wrrap">
+        <ul class="tab clearfix">
+            <li>珠宝</li>
+            <li>嫁妆</li>
+            <li>首饰</li>
+        </ul>
+        <div class="list">
+            <ul class="clearfix">
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景1.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <button class="loadMore">加载更多</button>
+            </ul>
+            <ul class="clearfix">
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景2.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <button class="loadMore">加载更多</button>
+            </ul>
+            <ul class="clearfix">
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <li><img src="./img/风景3.jpg" alt=""><div><a href="#" class="btn">立刻抢购</a></div></li>
+                <button class="loadMore">加载更多</button>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src='./javaScript/jquery-3.3.1.min.js'></script>
+<script src='./javaScript/JQuery.js'></script>
+</html>
