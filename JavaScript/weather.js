@@ -1,5 +1,5 @@
-var cityIdUrl = 'http://weixin.jirengu.com/weather/cityid';
-var cityweatherurl = 'http://weixin.jirengu.com/weather/now';
+var cityIdUrl = 'https://weixin.jirengu.com/weather/cityid';
+var cityweatherurl = 'https://weixin.jirengu.com/weather/now';
 var cityId = '';
 var datedict = {
     周日: 'Sat',
@@ -18,7 +18,7 @@ var datedict = {
     今日周六: 'Saturday'
 }
 function weatherbyIP(){
-    $.get('http://weixin.jirengu.com/weather/ip').done(function(e){
+    $.get('https://weixin.jirengu.com/weather/ip').done(function(e){
         if(e.status === 'ok'){
             getcityid(e.data);
         }else{
