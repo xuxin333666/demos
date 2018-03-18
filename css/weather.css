@@ -1,0 +1,147 @@
+* {
+    list-style-type: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+body {
+    height: 100%;
+    color: white;
+    background: url('../img/风景6-模糊.jpg');
+}
+.wrapper {
+    width: 50%;
+    min-width: 550px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.3),0 0 8px rgba(0,0,0,0.5);  
+}
+.wrapper>.content {
+    position: relative;
+    padding: 30px;
+    padding-bottom: 0px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content>.backgroundimg {
+    position: absolute;
+    z-index: -999;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.wrapper .location {
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper .location>h3 {
+    color: white;
+    font-size: 42px;
+    font-weight: bold;
+}
+.wrapper .location>h3>span {
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    margin-left: 20px;
+}
+.wrapper .location>div {
+    text-align: right;
+    font-size: 18px;
+    color: white;
+}
+.wrapper .location>div>a.icon-064dangqianweizhi:before {
+    font-size: 52px;
+    color: white;
+}
+.wrapper>.content>.nav {
+    display: flex;
+    margin-left: -30px;
+}
+.wrapper>.content>.nav>li>span.iconfont {
+    font-size: 26px;
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+    color: rgba(255,255,255,1);
+}
+.wrapper>.content>.nav>li>.navlink {
+    display: inline-block;
+    margin-left: 5px;
+    color: white;
+    vertical-align: middle;
+    color: rgba(255,255,255,1);
+}
+.wrapper>.content>.nav>li:first-child {
+    padding: 0 25px 15px 30px;
+    border-bottom: 8px solid #f5c65e;
+    opacity: 0.5;
+}
+.wrapper>.content>.nav>li:nth-child(2n) {
+    padding: 0 10px 15px 10px;
+    border-bottom: 8px solid #9f9eee;
+    opacity: 0.5;
+}
+.wrapper>.content>.nav>li:last-child {
+    padding: 0 25px 15px 15px;
+    border-bottom: 8px solid #5ed7e2;
+    opacity: 0.5;
+}
+.wrapper>.weatherDay {
+    display: flex;
+    background: rgba(255,255,255,0.1);
+}
+.wrapper>.weatherDay>.today {
+    flex-grow: 0.6;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    min-width: 235px;
+}
+.wrapper>.weatherDay>.today div.weatherPhoto {
+    float: right;
+}
+.wrapper>.weatherDay>.today div.describe {
+    margin-right: 90px;
+    margin-top: -10px;
+}
+.wrapper>.weatherDay>.today img {
+    width: 80px;
+}
+.wrapper>.weatherDay>.today div.weatherPhoto>p {
+    margin-top: -6px;
+}
+.wrapper>.weatherDay>.today h1 {
+    font-size: 64px;
+}
+a.date {
+    font-size: 14px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    padding: 3px 10px 3px 10px;
+    border-radius: 9.5px;
+}
+.wrapper>.weatherDay>.ohterday {
+    flex-grow: 1;
+    padding-top: 10px;
+    border-left: 1px solid rgba(0,0,0,0.3);
+    text-align: center;
+    padding:30px 0;
+}
+.wrapper>.weatherDay>.ohterday img {
+    width: 40px;
+    margin-top: 7px;
+}
+.wrapper>.content>.nav>li.action  {
+    opacity: 1;
+}

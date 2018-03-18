@@ -766,3 +766,24 @@ function ajax(obj){
     xhr.onerror =  onerror;
 }
 
+
+// 给$node 添加自定义属性data-src
+$node.data("src",str)
+
+// 获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)
+$node.width();//不包括内边距宽度,仅包括内容
+$node.height();//不包括内边距高度,仅包括内容
+$node.innerWidth();//包括内容和内边距宽度
+$node.innerHeight();//包括内容和内边距高度
+$node.outerWidth();//包括内容,内边距,边框宽度
+$node.outerHeight();//包括内容,内边距,边框高度
+$node.outerHeight(true);//包括内容,内边距,边框,外边距高度
+$node.outerWidth(true);//包括内容,内边距,边框,外边距宽度
+
+// 获取窗口滚动条垂直滚动距离
+$(window).scrollTop()
+$(window).scrollLeft()
+
+// 获取$node 到根节点水平、垂直偏移距离
+$node.offset().left
+$node.offset().top
