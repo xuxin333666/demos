@@ -16,8 +16,8 @@ body {
     background: url('../img/风景6-模糊.jpg');
 }
 .wrapper {
-    width: 50%;
     min-width: 550px;
+    max-width:900px;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -45,22 +45,22 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.wrapper .location>h3 {
+.wrapper .location>.city {
     color: white;
     font-size: 42px;
     font-weight: bold;
 }
-.wrapper .location>h3>span {
+.wrapper .location>.city>.tips {
     color: rgba(255,255,255,0.6);
     font-size: 16px;
     margin-left: 20px;
 }
-.wrapper .location>div {
+.wrapper .location>.position {
     text-align: right;
     font-size: 18px;
     color: white;
 }
-.wrapper .location>div>a.icon-064dangqianweizhi:before {
+.wrapper .location>.position>.icon-064dangqianweizhi:before {
     font-size: 52px;
     color: white;
 }
@@ -68,31 +68,31 @@ body {
     display: flex;
     margin-left: -30px;
 }
-.wrapper>.content>.nav>li>span.iconfont {
+.wrapper>.content>.nav .iconfont {
     font-size: 26px;
     display: inline-block;
     color: white;
     vertical-align: middle;
     color: rgba(255,255,255,1);
 }
-.wrapper>.content>.nav>li>.navlink {
+.wrapper>.content>.nav .navlink {
     display: inline-block;
     margin-left: 5px;
     color: white;
     vertical-align: middle;
     color: rgba(255,255,255,1);
 }
-.wrapper>.content>.nav>li:first-child {
+.nav>li:first-child {
     padding: 0 25px 15px 30px;
     border-bottom: 8px solid #f5c65e;
     opacity: 0.5;
 }
-.wrapper>.content>.nav>li:nth-child(2n) {
+.nav>li:nth-child(2n) {
     padding: 0 10px 15px 10px;
     border-bottom: 8px solid #9f9eee;
     opacity: 0.5;
 }
-.wrapper>.content>.nav>li:last-child {
+.nav>li:last-child {
     padding: 0 25px 15px 15px;
     border-bottom: 8px solid #5ed7e2;
     opacity: 0.5;
@@ -108,23 +108,24 @@ body {
     padding: 20px;
     min-width: 235px;
 }
-.wrapper>.weatherDay>.today div.weatherPhoto {
+.wrapper>.weatherDay>.today .weatherPhoto {
     float: right;
 }
-.wrapper>.weatherDay>.today div.describe {
+.wrapper>.weatherDay>.today .describe {
     margin-right: 90px;
     margin-top: -10px;
 }
 .wrapper>.weatherDay>.today img {
     width: 80px;
 }
-.wrapper>.weatherDay>.today div.weatherPhoto>p {
+.wrapper>.weatherDay>.today .weatherPhoto>.windspeed {
     margin-top: -6px;
 }
-.wrapper>.weatherDay>.today h1 {
+.wrapper>.weatherDay>.today .temperature {
     font-size: 64px;
+    font-weight: none;
 }
-a.date {
+.weatherDay .date {
     font-size: 14px;
     color: white;
     background: rgba(0,0,0,0.6);
