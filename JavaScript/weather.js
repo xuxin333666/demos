@@ -17,6 +17,27 @@ var datedict = {
     今日周五: 'Friday',
     今日周六: 'Saturday'
 }
+var $bgimg = $('.content>.backgroundimg');
+var $ct = $('.wrapper>.content');
+var $btnct = $('.btnct');
+var $next = $('.next');
+var $pre = $('.pre');
+var btnstr = '';
+var number = $bgimg.length;
+var page = number - 1;
+var getweatherLock = false;
+var carouselLock = false;
+for (let i = 0; i < number; i++) {
+    btnstr += '<li class="btn"></li>';  
+}
+$btnct.append(btnstr);
+$btn = $('.btn');
+$ct.append($bgimg.first().clone());
+$ct.prepend($bgimg.last().clone());
+var $bgimgNew = $('.content>.backgroundimg');
+var numberNew = $bgimgNew.length;
+$bgimgNew.last().hide();
+$btn.first().addClass('action');
 function weatherbyIP(){
     $.get('https://weixin.jirengu.com/weather/ip').done(function(e){
         if(e.status === 'ok'){
@@ -72,17 +93,20 @@ function  pushhtml(obj){
         $this.find('.futuretemperature').html(other[index+1].low + '<sup>&#176;</sup> ~ ' + other[index+1].high +'<sup>&#176;</sup>' );
     })
 }
-var timeid = setInterval(function(){
+var timeid1 = setInterval(function(){
     var totalseconds = (Date.parse(new Date())%86400000)/1000;
     var seconds = totalseconds%60;
     var totalminutes = Math.floor(totalseconds/60);
     var minutes = totalminutes%60;
     var hours = Math.floor(totalminutes/60)+8;
-    if(hours > 12){
+    if(hours > 12 && hours<24){
     hours -= 12;
     $('.wrapper .location .time').html(hours+':'+minutes+' pm');
-    }else{
+    }else if(hours <= 12){
     $('.wrapper .location .time').html(hours+':'+minutes+' am');
+    }else{
+        hours -= 24;
+        $('.wrapper .location .time').html(hours+':'+minutes+' am');
     }
 },1000)
 $('.wrapper>.content>.nav>li').on('click',function(){
@@ -93,11 +117,79 @@ $('.wrapper>.content>.nav>li').on('click',function(){
 $('.wrapper .location .icon-064dangqianweizhi').on('click',function(){
     weatherbyIP()
 })
-var timeid = setInterval(function(){
+var timeid2 = setInterval(function(){
     weatherbyIP()
 },1800000);
-
-
-
-
+$next.on('click',function(){
+    btnChangeNext()
+})
+$pre.on('click',function(){
+    btnChangePre()
+})
+var timeid3 = setInterval(function(){
+btnChangeNext()
+},5000)
+$btn.on('click',function(){
+    var $this = $(this);
+    var $thisIndex = $this.index();
+    btnChange($this,$thisIndex);
+})
+function playnext(len){
+    carouselLock = true;
+    $bgimg.slice(1+page-len,page+1).fadeOut(500,function(){
+        page--;
+        carouselLock = false;
+        if(page === -1){
+            page = number - 1;
+            $bgimg.css('display','block')
+        }
+    }); 
+}
+function playpre(len){
+    carouselLock = true;
+    $bgimgNew.slice(page+2,page+len+2).fadeIn(500,function(){
+        page++;
+        carouselLock = false;
+        if(page === number){
+            page = 0;
+            $bgimgNew.slice(2,numberNew).css('display','none'); 
+        }
+    }); 
+}
+function btnChangeNext(){
+    if(carouselLock){
+        return;
+    }
+    if(page===0){
+        action($btn.eq(0));
+    }else{
+        action($btn.eq(number-page));
+    }
+    playnext(1);    
+}
+function btnChangePre(){
+    if(carouselLock){
+        return;
+    }
+    if(page===number -1){
+        action($btn.eq(number -1));
+    }else{
+        action($btn.eq(number-page-2));
+    }
+    playpre(1);  
+}
+function btnChange($this,$thisIndex){
+    if(carouselLock){
+        return;
+    }
+    action($this);
+    if($thisIndex>(number-1-page)){
+        playnext($thisIndex-number+1+page);
+    }else if($thisIndex<(number-1-page)){
+        playpre(number-1-page-$thisIndex);
+    }
+}
+function action(e){
+    e.addClass('action').siblings().removeClass('action');
+}
 

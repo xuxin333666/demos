@@ -41,6 +41,21 @@ body {
     left: 0;
     top: 0;
 }
+.content>.next,
+.content>.pre {
+    position: absolute;
+    cursor: pointer;
+    font-size: 46px;
+    opacity: 0.5;
+}
+.content>.next {
+    top: 50%;
+    right: 30px;
+}
+.content>.pre {
+    top: 50%;
+    left: 30px;
+}
 .wrapper .location {
     display: flex;
     justify-content: space-between;
@@ -63,10 +78,25 @@ body {
 .wrapper .location>.position>.icon-064dangqianweizhi:before {
     font-size: 52px;
     color: white;
+    opacity: 0.5; 
 }
 .wrapper>.content>.nav {
     display: flex;
     margin-left: -30px;
+}
+.wrapper>.content .btnct {
+    margin-top: 15px;
+    width: 35%;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+}
+.btnct>li {
+    border: 8px solid;
+    margin: 0 15px;
+    border-radius: 8px;
+    opacity: 0.5; 
+    cursor: pointer;
 }
 .wrapper>.content>.nav .iconfont {
     font-size: 26px;
@@ -82,17 +112,17 @@ body {
     vertical-align: middle;
     color: rgba(255,255,255,1);
 }
-.nav>li:first-child {
+.nav>li:first-of-type {
     padding: 0 25px 15px 30px;
     border-bottom: 8px solid #f5c65e;
     opacity: 0.5;
 }
-.nav>li:nth-child(2n) {
+.nav>li:nth-of-type(2n) {
     padding: 0 10px 15px 10px;
     border-bottom: 8px solid #9f9eee;
     opacity: 0.5;
 }
-.nav>li:last-child {
+.nav>li:last-of-type {
     padding: 0 25px 15px 15px;
     border-bottom: 8px solid #5ed7e2;
     opacity: 0.5;
@@ -143,6 +173,16 @@ body {
     width: 40px;
     margin-top: 7px;
 }
+.content>.nav>.btnct>li.action,
+.content>.next.action,
+.content>.pre.action,
 .wrapper>.content>.nav>li.action  {
     opacity: 1;
+}
+.wrapper .location>.position>.icon-064dangqianweizhi:hover,
+.content>.nav>.btnct>li:hover,
+.content>.nav>li:hover,
+.next:hover,
+.pre:hover {
+    opacity: 0.8; 
 }
