@@ -101,12 +101,12 @@ var timeid1 = setInterval(function(){
     var hours = Math.floor(totalminutes/60)+8;
     if(hours > 12 && hours<24){
     hours -= 12;
-    $('.wrapper .location .time').html(hours+':'+minutes+' pm');
+    $('.wrapper .location .time').html(hours+':'+minutes+' pm'+'<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div>');
     }else if(hours <= 12){
-    $('.wrapper .location .time').html(hours+':'+minutes+' am');
+    $('.wrapper .location .time').html(hours+':'+minutes+' am'+'<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div>');
     }else{
         hours -= 24;
-        $('.wrapper .location .time').html(hours+':'+minutes+' am');
+        $('.wrapper .location .time').html(hours+':'+minutes+' am'+'<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div>');
     }
 },1000)
 $('.wrapper>.content>.nav>li').on('click',function(){

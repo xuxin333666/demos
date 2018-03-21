@@ -1,0 +1,32 @@
+.items,
+.standardWidth {
+    display: block;
+    position: absolute;
+    width: 250px;
+    transition: all .5s;
+    text-decoration: none;
+    color: black;
+    padding: 10px; 
+    border: 1px solid #ccc;
+}
+.items>img {
+    width: 250px;
+}
+.items>.title {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 15px 0;
+}
+.items>.intro {
+    color: rgba(0, 0, 0, 0.7);
+}
+.ct {
+    position: relative;
+}
+.bottom {
+    opacity: 0;
+}
+.standardWidth {
+    display: none;
+    border: none;
+}

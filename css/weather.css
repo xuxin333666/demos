@@ -80,6 +80,34 @@ body {
     color: white;
     opacity: 0.5; 
 }
+.time {
+    position: relative;
+    cursor: pointer;
+    opacity: 0.8; 
+}
+.tfhourct {
+    position: absolute;
+    top: 120%;
+    left: 0%;
+    width: 120px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 0 14px rgba(0,0,0,0.3),0 0 8px rgba(0,0,0,0.5); 
+    display: none;
+    padding: 10px 5px;
+}
+.tfhourct:before {
+    content: "";
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+    border-bottom: 5px solid rgba(255,255,255,0.6);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+}
+.time:hover>.tfhourct {
+    display: block;
+}
 .wrapper>.content>.nav {
     display: flex;
     margin-left: -30px;
@@ -103,14 +131,12 @@ body {
     display: inline-block;
     color: white;
     vertical-align: middle;
-    color: rgba(255,255,255,1);
 }
 .wrapper>.content>.nav .navlink {
     display: inline-block;
     margin-left: 5px;
     color: white;
     vertical-align: middle;
-    color: rgba(255,255,255,1);
 }
 .nav>li:first-of-type {
     padding: 0 25px 15px 30px;
@@ -176,7 +202,8 @@ body {
 .content>.nav>.btnct>li.action,
 .content>.next.action,
 .content>.pre.action,
-.wrapper>.content>.nav>li.action  {
+.wrapper>.content>.nav>li.action,
+.time:hover  {
     opacity: 1;
 }
 .wrapper .location>.position>.icon-064dangqianweizhi:hover,
