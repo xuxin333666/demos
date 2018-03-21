@@ -60,7 +60,7 @@ function getData(callback){
 }
 function getNode(news){
     var nodeStr = '';
-    nodeStr += `<a href="${news.url}" class="items">`;
+    nodeStr += `<a href="${news.url}" class="items" target="_blank" title="${news.short_intro}">`;
     nodeStr += `<img src="${news.img_url}" alt="">`;
     nodeStr += `<h3 class="title">${news.name}</h3>`;
     nodeStr += `<p class="intro">${news.short_intro}</p></a>`; 
