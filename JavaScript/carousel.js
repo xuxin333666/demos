@@ -1,66 +1,118 @@
-var $pli = $('.photoct>.photoli');
-var $ct = $('.photoct');
-var $next = $('.next');
-var $pre = $('.pre');
-var number = parseInt($pli.length)/ parseInt($ct.length);
-var width = $pli.width();
-var $page  = $('.page'); 
-var str = '';
-for (let i = 0; i < number; i++) {
-    str = str + '<li class="btn"></li>';
-}
-$page.append(str);
-var $btn = $('.page>.btn')
-var page = 0;
-var jumplock = false;
-$ct.css('left',-width)
-$ct.append($pli.first().clone());
-$ct.prepend($pli.last().clone());
-$next.on('click',function(){
-    playnext(1);
-})
-$pre.on('click',function(){
-    playpre(1);
-})
-var timer = setInterval(function(){
-    playnext(1);
-},5000)
-$btn.on('click',function(){
-    var rank = $(this).index();
-    jump(rank);
-})
-function playnext(len){
-    if(jumplock){
-        return;
+var carousel = (function(){
+    var $next = $('.next');
+    var $pre = $('.pre');
+    var btnstr = '';
+    var carouselLock = false;
+    function playnext(len){
+        carouselLock = true;
+        $bgimg.slice(1+page-len,page+1).fadeOut(500,function(){
+            page--;
+            carouselLock = false;
+            if(page === -1){
+                page = number - 1;
+                $bgimg.css('display','block')
+            }
+        }); 
     }
-    jumplock = true;
-    $ct.animate({'left':-width-(page+len)*width},function(){
-        page += len;
-        jumplock = false;
-        if(page ===number){
-            $ct.css('left',-width);
-            page = 0;
+    function playpre(len){
+        carouselLock = true;
+        $bgimgNew.slice(page+2,page+len+2).fadeIn(500,function(){
+            page++;
+            carouselLock = false;
+            if(page === number){
+                page = 0;
+                $bgimgNew.slice(2,numberNew).css('display','none'); 
+            }
+        }); 
+    }
+    function btnChangeNext(){
+        if(carouselLock){
+            return;
         }
-    })
-}
-function playpre(len){
-    if(jumplock){
-        return;
-    }
-    jumplock = true;
-    $ct.animate({'left':-width-page*width+len*width},function(){
-        page -= len;
-        jumplock = false;
-        if(page ===-1){
-            $ct.css('left',-width-(number-1)*width);
-            page = number - 1;
+        if(page===0){
+            action($btn.eq(0));
+        }else{
+            action($btn.eq(number-page));
         }
-    })
-}
-function jump(rank){
-    if(rank>page){
-        playnext(rank-page);
-        return;
+        playnext(1);    
     }
-    playpre(page-rank);
-}
+    function btnChangePre(){
+        if(carouselLock){
+            return;
+        }
+        if(page===number -1){
+            action($btn.eq(number -1));
+        }else{
+            action($btn.eq(number-page-2));
+        }
+        playpre(1);  
+    }
+    function btnChange($this,$thisIndex){
+        if(carouselLock){
+            return;
+        }
+        action($this);
+        if($thisIndex>(number-1-page)){
+            playnext($thisIndex-number+1+page);
+        }else if($thisIndex<(number-1-page)){
+            playpre(number-1-page-$thisIndex);
+        }
+    }
+    function action(e){
+        e.addClass('action').siblings().removeClass('action');
+    }    
+    function start(obj){
+        strIMG = obj.strIMG || '.content>.backgroundimg';
+        $bgimg = $(strIMG)
+        number = obj.number || $bgimg.length;
+        strBtnCt = obj.strBtnCt ||'.btnct';
+        $btnct = $(strBtnCt);
+        strCt = obj.strCt || '.content';
+        $ct = $(strCt);
+        page = number - 1;
+        (function createBtn(){
+            for (let i = 0; i < number; i++) {
+                btnstr += '<li class="btn"></li>';  
+            }
+            $btnct.append(btnstr);
+            $btn = $('.btn');
+        })();
+        (function cloneForeAndAft(){
+            $ct.append($bgimg.first().clone());
+            $ct.prepend($bgimg.last().clone());
+            $bgimgNew = $(strIMG);
+            numberNew = $bgimgNew.length;
+        })();
+        $bgimgNew.last().hide();
+        $btn.first().addClass('action');
+        $next.on('click',function(){
+            btnChangeNext()
+        })
+        $pre.on('click',function(){
+            btnChangePre()
+        })
+        var timeid = setInterval(function(){
+            btnChangeNext()
+        },5000)
+        $btn.on('click',function(){
+            var $this = $(this);
+            var $thisIndex = $this.index();
+            btnChange($this,$thisIndex);
+        })
+    }
+    return {
+        start: start
+    }
+})();
+
+/*
+carousel.start({
+    strIMG: '.content>.backgroundimg',
+    number: 4,
+    strBtnCt: '.btnct',
+    strCt: '.content'
+})
+
+前进后退的按钮类名必须为.next或.pre；
+有一个单独的点选的容器CT。
+*/

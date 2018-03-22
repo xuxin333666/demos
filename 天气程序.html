@@ -4,7 +4,7 @@
         <meta charset="utf-8"> 
         <title>天气程序</title>
         <link rel="stylesheet" href="css/weather.css">
-        <link rel="stylesheet" href="//at.alicdn.com/t/font_580882_yh5ngzmcf8ncdi.css">
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_580882_g9laxz1luxdh1tt9.css">
     </head>
     <body>
         <div class="wrapper">
@@ -14,13 +14,14 @@
                     <div class="position">
                         <a href="#"  class="iconfont icon-064dangqianweizhi"></a>
                         <p class="countries">未知 中国</p> 
-                        <div class="time">??:?? ??<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div></div>
+                        <div class="time">??:?? ??</div>
+                        <div class="tfhourct"><span class="handoup iconfont icon-handoup"></span><span class="tfhour">24小时制切换</span><span class="tfhourChange iconfont icon-huadonganniux"></span></div>
                     </div>
-                </div>
+                </div> 
                 <ul class="nav">
-                    <li class="action"><span class="iconfont icon-shouye"></span><a href="#" class="action navlink">WEATHER</a></li>
-                    <li><span class="iconfont icon-zhifeiji"></span><a href="#" class="navlink">NEWS&ENVENTS</a></li>
-                    <li><span class="iconfont icon-tupian"></span><a href="#" class="navlink">GALLERY(30)</a></li>
+                    <li class="weathers action"><span class="iconfont icon-shouye"></span>WEATHER</li>
+                    <li class="news"><span class="iconfont icon-zhifeiji"></span>NEWS&ENVENTS</li>
+                    <li class="music"><span class="iconfont icon-tubiaozhizuomoban"></span> MUSIC~ </li>
                     <ul class="btnct">
                     </ul>
                 </ul>   
@@ -32,7 +33,7 @@
                 <div class="pre iconfont icon-zuofanye-xue"></div>
             </div>
             <ul class="weatherDay">
-                <li class="today clearfix">
+                <li class="weather today clearfix">
                     <div class="weatherPhoto">
                         <img src="//weixin.jirengu.com/images/weather/code/0.png" alt="">
                         <p class="windspeed">?mph / ??<sup>&#176;</sup></p>
@@ -42,15 +43,19 @@
                         <a href="#" class="date">Monday 周一</a>
                     </div>
                 </li>
-                <li class="ohterday"><a href="#" class="date">TUE</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
-                <li class="ohterday"><a href="#" class="date">WED</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
-                <li class="ohterday"><a href="#" class="date">THU</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
-                <li class="ohterday"><a href="#" class="date">FRI</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
-                <li class="ohterday"><a href="#" class="date">SAT</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
-                <li class="ohterday"><a href="#" class="date">SUN</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <li class="weather ohterday"><a href="#" class="date">TUE</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <li class="weather ohterday"><a href="#" class="date">WED</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <li class="weather ohterday"><a href="#" class="date">THU</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <li class="weather ohterday"><a href="#" class="date">FRI</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <li class="weather ohterday"><a href="#" class="date">SAT</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <li class="weather ohterday"><a href="#" class="date">SUN</a><br><img src="//weixin.jirengu.com/images/weather/code/0.png" alt=""><p class="futuretemperature">??<sup>&#176;</sup></p></li>
+                <a href="" class="standardWidth"></a>
             </ul>
+            <div class="bottom"></div>
         </div>
         <script src="./JavaScript/jquery-3.3.1.min.js"></script>
+        <script src="./JavaScript/carousel.js"></script>
+        <script src="./JavaScript/waterfall.js"></script>
         <script src="./JavaScript/weather.js"></script>
     </body>
 </html>

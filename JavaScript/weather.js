@@ -1,195 +1,245 @@
-var cityIdUrl = 'https://weixin.jirengu.com/weather/cityid';
-var cityweatherurl = 'https://weixin.jirengu.com/weather/now';
-var cityId = '';
-var datedict = {
-    周日: 'Sun',
-    周一: 'Mon',
-    周二: 'Tue',
-    周三: 'Wed',
-    周四: 'Thu',
-    周五: 'Fri ',
-    周六: 'Sat',
-    今日周日: 'Sunday',
-    今日周一: 'Monday',
-    今日周二: 'Tuesday',
-    今日周三: 'Wednesday',
-    今日周四: 'Thursday',
-    今日周五: 'Friday',
-    今日周六: 'Saturday'
-}
-var $bgimg = $('.content>.backgroundimg');
-var $ct = $('.wrapper>.content');
-var $btnct = $('.btnct');
-var $next = $('.next');
-var $pre = $('.pre');
-var btnstr = '';
-var number = $bgimg.length;
-var page = number - 1;
-var getweatherLock = false;
-var carouselLock = false;
-for (let i = 0; i < number; i++) {
-    btnstr += '<li class="btn"></li>';  
-}
-$btnct.append(btnstr);
-$btn = $('.btn');
-$ct.append($bgimg.first().clone());
-$ct.prepend($bgimg.last().clone());
-var $bgimgNew = $('.content>.backgroundimg');
-var numberNew = $bgimgNew.length;
-$bgimgNew.last().hide();
-$btn.first().addClass('action');
-function weatherbyIP(){
-    $.get('https://weixin.jirengu.com/weather/ip').done(function(e){
-        if(e.status === 'ok'){
-            getcityid(e.data);
-        }else{
-            console.log(e);
-            alert('系统错误,获取IP失败');
-        }
-    }).fail(function(){
-        alert('网络出错了')
+var $ct = $('.content');
+var $nav =  $('.nav');
+var $navli = $('.nav>li');
+var $weatherDay =  $('.weatherDay');
+var $weatherDayli = $('.weatherDay>li.weather');
+var newsLock = false;
+carousel.start({});
+$nav.find('.news').on('click',function(){
+    if(newsLock){
+        return
+    }
+    newsLock = true;
+    action($(this));
+    $weatherDayli.css('display','none');
+    newsShow.show({
+        number: 5,
+        strbottom: '.bottom',
+        strCt: '.weatherDay',
+        margin: 10
     })
-}
-weatherbyIP();
-function getcityid(a){
-    $.get(cityIdUrl,{location:a}).done(function(a){
-        if(a.status ==='error'){
-            alert('系统错误，获取城市ID失败');
-            console.log(a);
-            return;
-        }
-        $('.countries').html(a.results[0].path.split(',').slice(1,4).join(' '));
-        var cityId = a.results[0].id;
-        gettodayweather(cityId);
-    }).fail(function(){
-        alert('网络出错了')
-    })
-}
-function gettodayweather(cityId){
-    $.get(cityweatherurl,{cityid:cityId}).done(function(e){
-        if(e.status === 'OK'){
-            pushhtml(e.weather[0]);
-            console.log(e.weather[0]);
-        }else{
-            alert('系统错误，获取天气数据失败');
-            console.log(e);
-        }
-    }).fail(function(){
-        alert('网络出错了');
-    })
-}
-function  pushhtml(obj){
-    var now = obj.now
-    var other = obj.future;
-    $('.wrapper .location>.city').html(obj.city_name + `|<span class="tips">${other[0].date}</span>`);
-    $('.today>.describe>.temperature').html(now.temperature +'<sup>&#176;</sup>');
-    $('.wrapper>.weatherDay>.today img').attr('src',`//weixin.jirengu.com/images/weather/code/${now.code}.png`);
-    $('.wrapper>.weatherDay>.today .weatherPhoto>.windspeed').html(now.wind_speed + 'mph / ' + other[0].high + '<sup>&#176;</sup>');
-    $('.wrapper>.weatherDay>.today .describe>.date').html(datedict['今日'+other[0].day]+ ' ' + other[0].day);
-    $('.wrapper>.weatherDay>.ohterday').each(function(index,value){
-        var $this =$(this);
-        $this.find('.date').html(datedict[other[index+1].day]);
-        $this.find('img').attr('src',`//weixin.jirengu.com/images/weather/code/${other[index+1].code1}.png`);
-        $this.find('.futuretemperature').html(other[index+1].low + '<sup>&#176;</sup> ~ ' + other[index+1].high +'<sup>&#176;</sup>' );
-    })
-}
-var timeid1 = setInterval(function(){
-    var totalseconds = (Date.parse(new Date())%86400000)/1000;
-    var seconds = totalseconds%60;
-    var totalminutes = Math.floor(totalseconds/60);
-    var minutes = totalminutes%60;
-    var hours = Math.floor(totalminutes/60)+8;
-    if(hours > 12 && hours<24){
-    hours -= 12;
-    $('.wrapper .location .time').html(hours+':'+minutes+' pm'+'<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div>');
-    }else if(hours <= 12){
-    $('.wrapper .location .time').html(hours+':'+minutes+' am'+'<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div>');
-    }else{
-        hours -= 24;
-        $('.wrapper .location .time').html(hours+':'+minutes+' am'+'<div class="tfhourct">24小时制<input type="checkbox" class="tfhour" name ="tfhour" value="true"></div>');
-    }
-},1000)
-$('.wrapper>.content>.nav>li').on('click',function(){
-    var $this = $(this);
-    $this.siblings('li').removeClass('action');
-    $this.addClass('action');
 })
-$('.wrapper .location .icon-064dangqianweizhi').on('click',function(){
-    weatherbyIP()
+$nav.find('.weathers').on('click',function(){
+    if(newsShow.isLoadOver()){
+        return 
+    }
+    action($(this));
+    $weatherDayli.css('display','block');
+    resetNews();
 })
-var timeid2 = setInterval(function(){
-    weatherbyIP()
-},1800000);
-$next.on('click',function(){
-    btnChangeNext()
+$nav.find('.music').on('click',function(){
+    if(newsShow.isLoadOver()){
+        return 
+    }
+    action($(this));
+    $weatherDayli.css('display','none');
+    resetNews();
 })
-$pre.on('click',function(){
-    btnChangePre()
-})
-var timeid3 = setInterval(function(){
-btnChangeNext()
-},5000)
-$btn.on('click',function(){
-    var $this = $(this);
-    var $thisIndex = $this.index();
-    btnChange($this,$thisIndex);
-})
-function playnext(len){
-    carouselLock = true;
-    $bgimg.slice(1+page-len,page+1).fadeOut(500,function(){
-        page--;
-        carouselLock = false;
-        if(page === -1){
-            page = number - 1;
-            $bgimg.css('display','block')
-        }
-    }); 
-}
-function playpre(len){
-    carouselLock = true;
-    $bgimgNew.slice(page+2,page+len+2).fadeIn(500,function(){
-        page++;
-        carouselLock = false;
-        if(page === number){
-            page = 0;
-            $bgimgNew.slice(2,numberNew).css('display','none'); 
-        }
-    }); 
-}
-function btnChangeNext(){
-    if(carouselLock){
-        return;
-    }
-    if(page===0){
-        action($btn.eq(0));
-    }else{
-        action($btn.eq(number-page));
-    }
-    playnext(1);    
-}
-function btnChangePre(){
-    if(carouselLock){
-        return;
-    }
-    if(page===number -1){
-        action($btn.eq(number -1));
-    }else{
-        action($btn.eq(number-page-2));
-    }
-    playpre(1);  
-}
-function btnChange($this,$thisIndex){
-    if(carouselLock){
-        return;
-    }
-    action($this);
-    if($thisIndex>(number-1-page)){
-        playnext($thisIndex-number+1+page);
-    }else if($thisIndex<(number-1-page)){
-        playpre(number-1-page-$thisIndex);
-    }
+function resetNews(){
+    newsLock = false;
+    $weatherDay.height('100%')
+    $('.items').remove();
+    newsShow.stopShow();
 }
 function action(e){
     e.addClass('action').siblings().removeClass('action');
 }
 
+
+
+
+// 天气信息获取API
+var weatherData = (function(){
+    var $ct = $('.content');
+    var $weatherDay =  $('.weatherDay');
+    var $weatherDayli = $('.weatherDay>li.weather');
+    var $locationIcon = $('.icon-064dangqianweizhi');
+    var cityIP = 'https://weixin.jirengu.com/weather/ip';
+    var cityIdUrl = 'https://weixin.jirengu.com/weather/cityid';
+    var cityweatherurl = 'https://weixin.jirengu.com/weather/now';
+    var cityId = '';
+    var datedict = {
+        周日: 'Sun',
+        周一: 'Mon',
+        周二: 'Tue',
+        周三: 'Wed',
+        周四: 'Thu',
+        周五: 'Fri ',
+        周六: 'Sat',
+        今日周日: 'Sunday',
+        今日周一: 'Monday',
+        今日周二: 'Tuesday',
+        今日周三: 'Wednesday',
+        今日周四: 'Thursday',
+        今日周五: 'Friday',
+        今日周六: 'Saturday'
+    }
+    var getweatherLock = false;
+    function getWeatherByIP(){
+        if(getweatherLock){
+            return
+        }
+        getweatherLock = true;
+        var cityId = (function(){
+            $.get(cityIP).done(function(e){
+                if(e.status === 'ok'){
+                    getcityid(e.data);
+                }else{
+                    alert('系统错误,获取IP失败');
+                    getweatherLock = false;
+                }
+            }).fail(function(){
+                alert('网络出错了')
+                getweatherLock = false;
+            })
+        })();
+        if(cityId){
+            var data = gettodayweather(cityId);
+        }
+        if(data){
+            pushhtml(data)
+        }
+    };
+    function getcityid(a){
+        $.get(cityIdUrl,{location:a}).done(function(a){
+            if(a.status ==='error'){
+                alert('系统错误，获取城市ID失败');
+                getweatherLock = false;
+                return;
+            }
+            $('.countries').html(a.results[0].path.split(',').slice(1,4).join(' '));
+            var cityId = a.results[0].id;
+            return cityId;
+        }).fail(function(){
+            alert('网络出错了')
+            getweatherLock = false;
+        })
+    }
+    function gettodayweather(cityId){
+        $.get(cityweatherurl,{cityid:cityId}).done(function(e){
+            if(e.status === 'OK'){
+                return e.weather[0];
+            }else{
+                alert('系统错误，获取天气数据失败');
+                getweatherLock = false;
+            }
+        }).fail(function(){
+            alert('网络出错了');
+            getweatherLock = false;
+        })
+    }
+    function  pushhtml(obj){
+        var now = obj.now
+        var other = obj.future;
+        $('.city').html(obj.city_name + `|<span class="tips">${other[0].date}</span>`);
+        $('.temperature').html(now.temperature +'<sup>&#176;</sup>');
+        $('.today img').attr('src',`//weixin.jirengu.com/images/weather/code/${now.code}.png`);
+        $('.windspeed').html(now.wind_speed + 'mph / ' + other[0].high + '<sup>&#176;</sup>');
+        $('.describe>.date').html(datedict['今日'+other[0].day]+ ' ' + other[0].day);
+        $('.weatherDay>.ohterday').each(function(index,value){
+            var $this =$(this);
+            $this.find('.date').html(datedict[other[index+1].day]);
+            $this.find('img').attr('src',`//weixin.jirengu.com/images/weather/code/${other[index+1].code1}.png`);
+            $this.find('.futuretemperature').html(other[index+1].low + '<sup>&#176;</sup> ~ ' + other[index+1].high +'<sup>&#176;</sup>' );
+        })
+        getweatherLock = false;
+    }
+    function action(e){
+        e.addClass('action').siblings().removeClass('action');
+    }
+    function getData(){
+        getWeatherByIP()
+        $locationIcon.on('click',function(){
+            getWeatherByIP()
+        })
+        var timeid2 = setInterval(function(){
+            getWeatherByIP()
+        },1800000);
+    }
+    return {
+        getData: getData
+    }
+})();
+weatherData.getData();
+
+
+
+
+
+
+
+
+// 时间显示及24小时制转换
+(function(){
+    var $time = $('.time');
+    var $tfhourCt = $('.tfhourct');
+    var $tfhour = $('.tfhour');
+    var $tfhourChange = $('.tfhourChange');
+    var $handup = $('.handoup')
+    var hourStyle = 24;
+    var timeid1;
+    var dict = ['00','01','02','03', '04','05','06','07','08','09'];
+    function  checkMove(){
+        $tfhourCt.animate({
+            'right': '0'
+        });
+    }
+    function  checkMoveOver(){
+        $tfhourCt.animate({
+            'right': '-165px'
+        });
+    }
+    function hourChange(h){
+        window.clearTimeout(timeid1);
+        timeid1 = setInterval(function(){
+            var totalseconds = (Date.parse(new Date())%86400000)/1000;
+            var seconds = totalseconds%60;
+            var totalminutes = Math.floor(totalseconds/60);
+            var minutes = totalminutes%60;
+            var hours = Math.floor(totalminutes/60)+8;
+            if(minutes<10){ minutes = dict[minutes]}
+            if(hours<10){ hours = dict[hours]}
+            if(h===12){
+                if(hours > 12 && hours<24){
+                    hours -= 12;
+                    if(hours<10){ hours = dict[hours]}
+                    $time.html(hours+':'+minutes+' pm');
+                    }else if(hours <= 12){
+                        $time.html(hours+':'+minutes+' am');
+                    }else{
+                        hours -= 24;
+                        if(hours<10){ hours = dict[hours]}
+                        $time.html(hours+':'+minutes+' am');
+                }
+            }else {
+                if(hours<24){
+                    $time.html('北京时间 '+hours+':'+minutes);
+                }else{
+                    hours -= 24;
+                    if(hours<10){ hours = dict[hours]}
+                    $time.html('北京时间 '+hours+':'+minutes);
+                }
+            }
+        },1000)
+    }
+    (function timeChange(){
+        hourChange(12);
+        $tfhourCt.on('mouseenter',function(){
+            checkMove();
+        })
+        $tfhourCt.on('mouseleave',function(){
+            checkMoveOver();
+        })
+        $tfhourChange.on('click',function(){
+            if(hourStyle===12){
+                hourStyle = 24;
+                $tfhourChange.removeClass('icon-huadonganniuyes').addClass('icon-huadonganniux');
+                hourChange(12);
+            }else{
+                hourStyle = 12;
+                $tfhourChange.removeClass('icon-huadonganniux').addClass('icon-huadonganniuyes');
+                hourChange(24);
+            } 
+        })
+    })();
+})();
