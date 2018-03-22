@@ -80,25 +80,17 @@ var weatherData = (function(){
             return
         }
         getweatherLock = true;
-        var cityId = (function(){
-            $.get(cityIP).done(function(e){
-                if(e.status === 'ok'){
-                    getcityid(e.data);
-                }else{
-                    alert('系统错误,获取IP失败');
-                    getweatherLock = false;
-                }
-            }).fail(function(){
-                alert('网络出错了')
+        $.get(cityIP).done(function(e){
+            if(e.status === 'ok'){
+                getcityid(e.data);
+            }else{
+                alert('系统错误,获取IP失败');
                 getweatherLock = false;
-            })
-        })();
-        if(cityId){
-            var data = gettodayweather(cityId);
-        }
-        if(data){
-            pushhtml(data)
-        }
+            }
+        }).fail(function(){
+            alert('网络出错了')
+            getweatherLock = false;
+        })
     };
     function getcityid(a){
         $.get(cityIdUrl,{location:a}).done(function(a){
@@ -109,7 +101,7 @@ var weatherData = (function(){
             }
             $('.countries').html(a.results[0].path.split(',').slice(1,4).join(' '));
             var cityId = a.results[0].id;
-            return cityId;
+            gettodayweather(cityId);
         }).fail(function(){
             alert('网络出错了')
             getweatherLock = false;
@@ -118,7 +110,7 @@ var weatherData = (function(){
     function gettodayweather(cityId){
         $.get(cityweatherurl,{cityid:cityId}).done(function(e){
             if(e.status === 'OK'){
-                return e.weather[0];
+                pushhtml(e.weather[0]);
             }else{
                 alert('系统错误，获取天气数据失败');
                 getweatherLock = false;
