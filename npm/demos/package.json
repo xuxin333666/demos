@@ -1,0 +1,21 @@
+{
+  "name": "weathertestxx",
+  "version": "1.0.1",
+  "description": "\u001b[3~\u001b[3~\u001b[3第一次测试",
+  "main": "index.js",
+  "bin": {
+    "weather": "./index.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "xuxin",
+  "license": "ISC"
+}
